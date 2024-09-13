@@ -46,6 +46,9 @@ public:
         sock->async_read_some(boost::asio::buffer(m_buf),
             bind(&client::read_handler, this,
                 boost::asio::placeholders::error, sock));
+        // 为什么上面要把sock传进去呢?
+        // 因为sock是使用智能指针，如果不传递进去，在这里就会被析构掉
+        // 会导致套接字被释放，从而读取的时候会报错，这个书籍里面没有提到的，是自己踩了后踩发现
     }
 
     void read_handler(const boost::system::error_code &ec, socket_ptr sock)

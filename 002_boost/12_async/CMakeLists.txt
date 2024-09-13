@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
-project(boost_learn)
+project(12_async_tcp_servier_and_client)
 add_executable(server 12_async_tcp_service.cpp)
 target_include_directories(server PUBLIC "D:\\tools\\gitee\\something\\libs\\include\\boost-1_86")
 
